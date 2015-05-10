@@ -129,7 +129,7 @@ if (MSVC)
   # headers.
 else()
   if (LIBCXX_HAS_NOSTDINCXX_FLAG)
-    list(APPEND LIBCXX_COMPILE_FLAGS -nostdinc++)
+    list(APPEND LIBCXX_COMPILE_FLAGS -nostdinc++ -nostdlib -nostdinc -I${LIBCXX_LIBKC_INCLUDE} -isystem ${CXX_COMPILER_INCLUDE})
     string(REPLACE "-stdlib=libc++" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
     string(REPLACE "-stdlib=libstdc++" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
   endif()
